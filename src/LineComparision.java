@@ -49,7 +49,7 @@ import java.util.*;
             LineComparision LC1 = new LineComparision();
             LineComparision LC2 = new LineComparision();
 
-            LC1.getLinePoint();
+            LC1.getLinePoint(); // inserting values from user
             LC2.getLinePoint();
 
             double line1Length = LC1.getLengthOfLine();
