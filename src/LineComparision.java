@@ -1,53 +1,65 @@
 import java.util.Scanner;
 import java.util.*;
 
-public class LineComparision {
-
-    public static void main(String[] args) {
-        System.out.println("Welcome to Line Comparison Computation\n"+"------------------------------");
-        int X1, X2, Y1, Y2;
-        int A1 ,A2, B1, B2;
+    public class LineComparision {
+        float x1,x2,y1,y2;
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter values for line one");
-            System.out.print("Enter The Value of X1 :");
-            X1 = sc.nextInt();
-            System.out.print("Enter The Value of Y1 :");
-            Y1 = sc.nextInt();
-            System.out.print("Enter the Value of X2 :");
-            X2 = sc.nextInt();
-            System.out.print("Enter the Value of Y2 :");
-            Y2 = sc.nextInt();
 
-            double lengthofLine = Math.sqrt(Math.pow((X2 - X1), 2) + Math.pow((Y2 - Y1), 2));
-            System.out.println("Length of the line is " + lengthofLine);
-
-            System.out.println("Enter values for second line");
-        System.out.print("Enter The Value of A1 :");
-        A1 = sc.nextInt();
-        System.out.print("Enter The Value of B1 :");
-        B1 = sc.nextInt();
-        System.out.print("Enter the Value of A2 :");
-        A2 = sc.nextInt();
-        System.out.print("Enter the Value of B2 :");
-        B2 = sc.nextInt();
-
-            double lengthofLine2 = Math.sqrt(Math.pow((A2 - A1), 2) + Math.pow((B2 - B1), 2));
-            System.out.println("Length of the line is " + lengthofLine2);
-        
-        if(lengthofLine == lengthofLine2)
+        public void getLinePoint()
         {
-            System.out.println("Line1 and Line2 are Equal.");
+            System.out.println("Enter The Value of X1 :");
+            x1=sc.nextFloat();
+
+            System.out.println("Enter The Value of Y1 :");
+            y1=sc.nextFloat();
+
+            System.out.println("Enter the Value of X2 :");
+            x2=sc.nextFloat();
+
+            System.out.println("Enter the Value of Y2 :");
+            y2=sc.nextFloat();
+
         }
-        else
+        public double getLengthOfLine()
         {
-            if(lengthofLine > lengthofLine2)
+            double lengthofLine = Math.sqrt(Math.pow((x2-x1),2)+Math.pow((y2-y1),2));
+            return lengthofLine;
+        }
+        public static String compareTo(double l1,double l2)
+        {
+            if(l1==l2)
             {
-                System.out.println("Line 1 is Bigger Than Line 2");
+                return "Line1 and Line2 are Equal.";
             }
             else
             {
-                System.out.println("Line 1 is Smaller Than Line 2");
+                if(l1>l2)
+                {
+                    return "Line 1 is Bigger Than Line 2";
+                }
+                else
+                {
+                    return "Line 1 is Smaller Than Line 2";
+                }
             }
         }
+
+        public static void main(String[] args) {
+            System.out.println("Welcome to Line Comparison Computation Program");
+            LineComparision LC1 = new LineComparision();
+            LineComparision LC2 = new LineComparision();
+
+            LC1.getLinePoint();
+            LC2.getLinePoint();
+
+            double line1Length = LC1.getLengthOfLine();
+            double line2Length = LC2.getLengthOfLine();
+
+            System.out.println("Length of Line1 : "+line1Length);
+            System.out.println("Length of Line2 : "+line2Length);
+
+            //Checking the Equality or Smaller Length of Lines
+            System.out.println(compareTo(line1Length,line2Length));
+
+        }
     }
-}
